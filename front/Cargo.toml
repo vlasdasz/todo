@@ -1,0 +1,13 @@
+[package]
+edition = "2021"
+name = "todo"
+version = "0.1.0"
+
+[[bin]]
+name = "todo"
+
+[lib]
+crate-type = ["rlib", "staticlib"]
+name = "todo"
+
+[dependencies]

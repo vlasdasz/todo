@@ -1,0 +1,45 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  CARGO_TERM_COLOR: always
+  GITHUB_ACTIONS: true
+
+jobs:
+
+  build:
+    name: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [
+#          { runner: mac, os: macos },
+          { runner: ubuntu-latest, os: linux },
+#          { runner: windows-latest, os: windows },
+
+#          { runner: mac, os: ios },
+          #          { runner: mac, os: android }
+        ]
+    runs-on: ${{ matrix.target.runner }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          submodules: recursive
+
+      - name: Build
+        if: ${{ matrix.target.os != 'windows' }}
+        run: ./build/build.sh ${{ matrix.target.os }}
+
+      - name: Build windows
+        if: ${{ matrix.target.os == 'windows' }}
+        run: py build/build.py
+
+      - name: Test
+        if: ${{ matrix.target.os == 'linux' }}
+        run: make test

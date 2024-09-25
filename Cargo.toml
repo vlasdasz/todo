@@ -1,0 +1,8 @@
+[workspace]
+
+default-members = ["front"]
+members = ["back", "front", "model"]
+
+resolver = "2"
+
+[workspace.dependencies]

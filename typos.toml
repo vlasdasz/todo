@@ -1,0 +1,6 @@
+[files]
+extend-exclude = ["*.pbxproj", "*.backup", "*.tfstate"]
+
+[default.extend-words]
+# LOD - level of detail
+lod = "lod"

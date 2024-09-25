@@ -1,0 +1,12 @@
+[package]
+edition = "2021"
+name = "back"
+version = "0.1.0"
+
+[[bin]]
+name = "back"
+
+[lib]
+name = "back"
+
+[dependencies]
