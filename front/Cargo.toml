@@ -11,3 +11,7 @@ crate-type = ["rlib", "staticlib"]
 name = "todo"
 
 [dependencies]
+anyhow = { workspace = true }
+tokio = { workspace = true }
+
+test-engine = { workspace = true }

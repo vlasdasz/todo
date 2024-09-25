@@ -6,3 +6,7 @@ members = ["back", "front", "model"]
 resolver = "2"
 
 [workspace.dependencies]
+anyhow = "1.0"
+tokio = "1.40"
+
+test-engine = { path = "../test-engine/test-engine" }
